@@ -1,1 +1,50 @@
 
+body{
+    height: 700px;
+}
+.bodyClear {
+    background-image: url("./src/clearSky.jpg");
+   
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bodyRain {
+    background-image: url("./src/rain.jpg");
+
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.Thunderstorm {
+    background-image: url("./src/thunderstorm.jpg");
+ 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.Clouds {
+    background-image: url("./src/scatteredClouds.jpg");
+  
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.Snow  {
+    background-image: url("./src/snow.jpg");
+
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+

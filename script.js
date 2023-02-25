@@ -6,8 +6,10 @@ let name
 let country
 let temp
 let description
+let mainDescription
 let feels
 let humidity
+let body = document.querySelector(".body")
 let cityName = document.getElementById('city');
 let temperature = document.getElementById('temp');
 let sky = document.getElementById('sky');
@@ -20,6 +22,24 @@ let displayweather = function(){
     temperature.innerText = "Temp: " + temp + "°C";
     feelsDisplay.innerText = "Feels like: " + feels+ "°C";
     humidityDisplay.innerText = "Humidity: " + humidity;
+    console.log(mainDescription)
+    if (mainDescription == "Clear"){
+        body.removeAttribute("class")
+        body.classList.add("bodyClear")
+    } else if (mainDescription == "Rain"){
+        body.removeAttribute("class")
+        body.classList.add("bodyRain")
+    }else if (mainDescription == "Thunderstorm"){
+        body.removeAttribute("class")
+        body.classList.add("Thunderstorm")
+    }else if (mainDescription == "Clouds"){
+        body.removeAttribute("class")
+        body.classList.add("Clouds")
+    }else if (mainDescription == "Snow"){
+        body.removeAttribute("class")
+        body.classList.add("Snow")
+    }
+
 
 
 }
@@ -43,18 +63,19 @@ fetch('https://api.openweathermap.org/data/2.5/weather?q='+ city + '&units=metri
     console.log(response);
 
     name = response.name;
-    console.log('name = ' + name);
+    
     country = response.sys.country;
-    console.log('country = ' + country);
+   
 
     temp = Math.round(response.main.temp);
-    console.log(temp);
+    
     description = response.weather[0].description;
-    console.log(description);
+    mainDescription = response.weather[0].main;
+   
     feels = Math.round(response.main.feels_like);
-    console.log(feels );
+
     humidity = response.main.humidity;
-    console.log( humidity);
+  
     displayweather();
   })
   .catch(function (err){
