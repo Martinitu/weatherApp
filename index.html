@@ -8,16 +8,30 @@
     <title>Weather app</title>
 </head>
 <body class="body">
-    <label for="search">enter a city</label>
+    <div class="container">
+    <div class="search"><label for="search">enter a city</label>
   <input type="search" id="search">
   <button type="search-button" id="search-button">search weather</button>
+</div>
   <br>
+
+  <div class="info">
     <h1 id="city"></h1>
     <p id="sky"></p>
     <h2 id="temp"></h2>
     <p id="feels"></p>
     <p id="humidity"></p>
 
+  </div>
+
+   <div class="switchCF"> <h2>°C/°F</h2>
+    <label class="switch"> 
+        
+        <input type="checkbox" class="checkbox">
+        <span class="slider round"></span>
+      </label>
+    </div>
+</div>
     <script src="script.js"></script>
 </body>
 </html>

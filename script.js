@@ -15,12 +15,16 @@ let temperature = document.getElementById('temp');
 let sky = document.getElementById('sky');
 let feelsDisplay = document.getElementById('feels');
 let humidityDisplay = document.getElementById('humidity');
+let temperatureClass = "metric"
+let temperatureClassymbol = "°C"
+
+
 
 let displayweather = function(){
     cityName.innerText = name + " " + country;
     sky.innerText = description;
-    temperature.innerText = "Temp: " + temp + "°C";
-    feelsDisplay.innerText = "Feels like: " + feels+ "°C";
+    temperature.innerText = "Temp: " + temp + temperatureClassymbol;
+    feelsDisplay.innerText = "Feels like: " + feels + temperatureClassymbol;
     humidityDisplay.innerText = "Humidity: " + humidity;
     console.log(mainDescription)
     if (mainDescription == "Clear"){
@@ -44,6 +48,23 @@ let displayweather = function(){
 
 }
 
+let checkbox = document.querySelector('.checkbox')
+console.log(checkbox)
+checkbox.addEventListener('click', function(){
+    if (checkbox.checked === true){
+        temperatureClass = "imperial";
+        temperatureClassymbol = "°F";
+        searchFunction();
+    } else {
+        temperatureClass = "metric"
+        temperatureClassymbol = "°C";
+        searchFunction();
+    }
+
+
+})
+   
+   
 
 let searchFunction = function(){
      city = document.querySelector('#search').value;
@@ -55,7 +76,7 @@ let searchFunction = function(){
 
 
 let fetchFunction = function(){
-fetch('https://api.openweathermap.org/data/2.5/weather?q='+ city + '&units=metric&APPID=e0682bf2ccc3feec865b8e5c565a3996', {mode: 'cors'})
+fetch('https://api.openweathermap.org/data/2.5/weather?q='+ city + '&units='+ temperatureClass +'&APPID=e0682bf2ccc3feec865b8e5c565a3996', {mode: 'cors'})
 .then(function(response) {
     return response.json();
   })
@@ -85,3 +106,4 @@ fetch('https://api.openweathermap.org/data/2.5/weather?q='+ city + '&units=metri
 
 fetchFunction()
 search.addEventListener("click", searchFunction);
+
